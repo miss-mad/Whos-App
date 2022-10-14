@@ -11,13 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // User hasMany Contact
-      // User hasMany Message
-      // Contact belongsTo User
-      // Message belongsTo User
-
-      // Contact hasMany Message
-      // Message belongsTo Contact
+      
     }
   }
   User.init({

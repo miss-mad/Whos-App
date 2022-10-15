@@ -1,17 +1,11 @@
 # Who's App
 The newest chat app in town!
 
-## Description
-
-
-
-## Technologies
-
-
-
 ## Table of Contents
 
 - [Description](#description)
+- [Motivation](#motivation)
+- [User Story](#user-story)
 - [Technologies](#Technologies)
 - [Deployed Application](#deployed-application)
 - [Future Improvements](#future-improvements)
@@ -20,16 +14,33 @@ The newest chat app in town!
 - [Credits](#credits)
 - [License](#license)
 
+## Description
+
+(elevator pitch here)
+
+## Motivation
+
+
+
+## User Story
+
+
+
+## Technologies
+
 
 ## Deployed Application
 
-This challenge is deployed to Heroku:
+This challenge is deployed to Heroku: 
+and housed on Github: 
 
 ## Future Improvements
 
 * 
 
 ## Installation
+
+
 
 ## Usage
 
@@ -71,6 +82,6 @@ Group 1:
 
 ## License
 
-No licenses (default copyright laws apply).
+No licenses
 
 ---

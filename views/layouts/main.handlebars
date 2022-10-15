@@ -15,9 +15,13 @@
         </a>
       </div>
     </nav>
-    
-    <div class="container">
-      <h2 class="text-center mt-3">Login</h2>
+    {{#if logged_in}}
+    <nav>
+      <button class="btn" id="logout">Logout</button>
+    </nav>
+    {{/if}}
+    <main class="container">
+      {{{ body }}}
     <div class="form-floating mb-3 mt-3">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
@@ -26,8 +30,11 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
-    </div>
+    </main>
 
+    <div class="d-grid gap-2 col-4 mx-auto">
+      <button type="submit" value="Submit" class="btn btn-warning btn-lg mt-3">Login</button>
+    </div>
     <div class="d-grid gap-2 col-4 mx-auto">
       <button type="submit" value="Submit" class="btn btn-warning btn-lg mt-3">Sign-Up</button>
     </div>

@@ -1,4 +1,5 @@
 const loginFormHandler = async (event) => {
+
   event.preventDefault();
 
   // Collect values from the login form
@@ -40,10 +41,13 @@ const signupFormHandler = async (event) => {
       document.location.replace("/contacts");
     } else {
       alert(response.statusText);
+
     }
   }
 };
 
 document
+
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
+

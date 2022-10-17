@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-3">
+      <div class="row"><div class="col" id="rooms"></div></div>
+      <div class="row"><div class="col" id="users"></div></div>
+    </div>
+
+    <div class="col-9">
+      <div class="row">
+        <div class="col"></div>
+        <form action="" id="messageForm">
+          <input id="input" />
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col" id="messages"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- having set up socket.io set up on the server, we can access the front end library with the script tag below --}}
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/socket_client.js"></script>

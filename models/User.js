@@ -1,23 +1,22 @@
 'use strict';
 const {
-  Model
+  Model, DataTypes
 } = require('sequelize');
+
+const bcrypt = require(bcrypt);
+
+const sequelize = require('../config/connection');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    checkPassword(loginPW) {
+      return bcrypt.compareSync(loginPW, this.password);
+    }
     static associate(models) {
       // define association here
-      // User hasMany Contact
-      // User hasMany Message
-      // Contact belongsTo User
-      // Message belongsTo User
-
-      // Contact hasMany Message
-      // Message belongsTo Contact
+      User.hasMany(Contact);
+      User.hasMany(Message);
+      Contact.belongsTo(User);
+      Message.belongsTo(User);
     }
   }
   User.init({
@@ -32,3 +31,5 @@ module.exports = (sequelize, DataTypes) => {
   });
   return User;
 };
+
+module.exports = User;

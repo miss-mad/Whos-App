@@ -16,6 +16,8 @@ const generate_random_user_id = () => {
 };
 
 // the following functions are all for socketServer.js to help socket's events: user enters a room, user sends a message, and user leaves a room
+
+// creates a users array that each new user gets added onto
 const addUser = (id, username, room) => {
   const user = { id, username, room };
 
@@ -24,10 +26,12 @@ const addUser = (id, username, room) => {
   return user;
 };
 
+//
 const getRoomUsers = (room) => {
   return users.filter((user) => user.room === room);
 };
 
+// when a user leaves a room, find the user's id
 const removeUser = (id) => {
   const index = users.findIndex((user) => user.id === id);
 
@@ -38,10 +42,16 @@ const removeUser = (id) => {
   }
 };
 
+// get the current user to determine who sent the chat message
+const getCurrentUser = (id) => {
+  return users.find((user) => user.id === id);
+};
+
 module.exports = {
   formatMessage,
   generate_random_user_id,
   addUser,
   getRoomUsers,
   removeUser,
+  getCurrentUser,
 };

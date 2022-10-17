@@ -32,5 +32,21 @@ io.on("connection", (socket) => {
       users: getRoomUsers(user.room),
     });
   });
+
+  socket.on("disconnect", () => {
+    const user = removeUser(socket.id);
+
+    if (user) {
+      io.to(user.room).emit(
+        "message",
+        formatMessage("Good Bot ", `${user.username} has left the chat`)
+      );
+
+      io.to(user.room).emit("roomUsers", {
+        room: user.room,
+        users: getRoomUsers(user.room),
+      });
+    }
+  });
 });
 

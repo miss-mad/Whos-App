@@ -28,4 +28,20 @@ const getRoomUsers = (room) => {
   return users.filter((user) => user.room === room);
 };
 
-(module.exports = formatMessage), generate_random_user_id;
+const removeUser = (id) => {
+  const index = users.findIndex((user) => user.id === id);
+
+  // if the index is not equal to -1, then return the users array without the user that just left with splice
+  if (index !== -1) {
+    // 0 index because we don't want to return the entire array, just the user
+    return users.splice(index, 1)[0];
+  }
+};
+
+module.exports = {
+  formatMessage,
+  generate_random_user_id,
+  addUser,
+  getRoomUsers,
+  removeUser,
+};

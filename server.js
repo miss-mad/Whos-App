@@ -18,7 +18,7 @@ const hbs = exphbs.create({ helpers });
 // Implement socket.io
 const http = require("http");
 const server = http.createServer(app);
-const {run_socket} = require("./socket_server");
+const {run_socket} = require("./socketServer");
 run_socket(server);
 
 const sess = {

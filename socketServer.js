@@ -5,10 +5,20 @@
 
 const formatMessage = require("./utils/socketHelpers");
 
-const socketio = require("socket.io");
-const io = socketio(server);
+const run_socket = (server) => {
+  const socketio = require("socket.io");
+  const io = socketio(server);
 
-io.on("connection", (socket) => {
+  io.on("connection", (socket) => {
+    join_room(io, socket);
+
+    leave_room(io, socket);
+
+    emit_message(io, socket);
+  });
+};
+
+const join_room = (io, socket) => {
   socket.on("joinRoom", ({ username, room }) => {
     console.log("user is in a room: ", username, room, socket.id);
 
@@ -32,7 +42,9 @@ io.on("connection", (socket) => {
       users: getRoomUsers(user.room),
     });
   });
+};
 
+const leave_room = (io, socket) => {
   socket.on("disconnect", () => {
     const user = removeUser(socket.id);
 
@@ -48,11 +60,16 @@ io.on("connection", (socket) => {
       });
     }
   });
-  
+};
+
+const emit_message = (io, socket) => {
   socket.on("chatMessage", (msg) => {
     const user = getCurrentUser(socket.id);
 
     io.to(user.room).emit("message", formatMessage(user.username, msg));
   });
-});
+};
 
+module.exports = {
+  run_socket: run_socket,
+};

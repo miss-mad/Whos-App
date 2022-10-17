@@ -1,16 +1,13 @@
 const router = require("express").Router();
-const chatsRoutes = require("./chatRoutes");
-const loginRoutes = require("./loginRoutes");
-const profileRoutes = require("./profileRoutes");
 const contactRoutes = require("./contactRoutes");
+const messageRoutes = require("./messageRoutes");
+const userRoutes = require("./userRoutes");
 
-// to a specfic person
-router.use("/chat", chatsRoutes);
-// to login to homepage
-router.use("/login", loginRoutes);
-// to view user profile
-router.use("/profile", profileRoutes);
-// to all contacts on homepage
-router.use("/contact", contactRoutes);
+// to create and delete Contacts
+router.use("/contacts", contactRoutes);
+// to create to delete Messages
+router.use("/message", messageRoutes);
+// to create and delete Users
+router.use("/user", userRoutes);
 
 module.exports = router;

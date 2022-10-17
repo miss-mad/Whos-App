@@ -1,17 +1,17 @@
 const router = require("express").Router();
-const { Contact } = require("../../models");
+const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/:id", withAuth, async (req, res) => {
   try {
-    const newContact = await Contact.findOne({
+    const getUser = await User.findOne({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    res.status(200).json(newContact);
+    res.status(200).json(getUser);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -19,12 +19,12 @@ router.get("/:id", withAuth, async (req, res) => {
 
 router.post("/", withAuth, async (req, res) => {
   try {
-    const newContact = await Contact.create({
+    const newUser = await User.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newContact);
+    res.status(200).json(newUser);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -32,19 +32,19 @@ router.post("/", withAuth, async (req, res) => {
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const contactData = await Contact.destroy({
+    const userData = await User.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!contactData) {
-      res.status(404).json({ message: "No contact found with this id!" });
+    if (!userData) {
+      res.status(404).json({ message: "No user found with this id!" });
       return;
     }
 
-    res.status(200).json(contactData);
+    res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
   }

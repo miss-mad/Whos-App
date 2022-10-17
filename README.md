@@ -40,6 +40,14 @@ and housed on Github:
 
 ## Installation
 
+```
+clone github repo
+npm install
+node server.js
+
+Go to http://localhost:3001
+```
+OR follow the above heroku deployed application link
 
 
 ## Usage

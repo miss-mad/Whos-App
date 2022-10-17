@@ -39,4 +39,20 @@ const handleSocket = () => {
   });
 };
 
+const handleMessageEvent = (event) => {
+  event.preventDefault();
+  const message = event.target.elements.input.value.trim();
+
+  if (!message) {
+    return false;
+  }
+
+  socket.emit("chatMessage", message);
+
+  event.target.elements.input.value = "";
+  event.target.elements.input.focus();
+};
+
+messageForm.addEventListener("submit", handleMessageEvent);
+
 handleSocket();

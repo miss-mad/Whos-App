@@ -15,8 +15,14 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
+// Implement socket.io
+const http = require("http");
+const server = http.createServer(app);
+const {run_socket} = require("./socketServer");
+run_socket(server);
+
 const sess = {
-  secret: 'Super secret secret',
+  secret: 'whosapp_secret',
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -37,5 +43,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  server.listen(PORT, () => console.log('Now listening'));
 });

@@ -9,6 +9,11 @@ const messageForm = document.getElementById("messageForm");
 const roomName = document.getElementById("rooms");
 const userList = document.getElementById("users");
 
+// find the user id and room id from the query string, might not need later
+let pathname = location.pathname;
+const username = pathname.split("/")[2];
+const room = pathname.split("/")[4];
+
 socket.emit("joinRoom", { username, room });
 
 const handleSocket = () => {

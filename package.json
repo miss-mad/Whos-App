@@ -13,7 +13,9 @@
     "url": "https://github.com/MatthewShahamad/Whos-App/issues"
   },
   "homepage": "https://github.com/MatthewShahamad/Whos-App#readme",
-   "devDependencies": {},
+  "devDependencies": {
+    "sequelize-cli": "^6.5.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MatthewShahamad/Whos-App.git"

@@ -24,8 +24,9 @@ run_socket(server);
 const sess = {
 
   secret: 'whosapp_secret',
-
-  cookie: {},
+  cookie: {
+    maxAge: 1000 * 60 * 5, // log out after 5 minutes in milliseconds
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

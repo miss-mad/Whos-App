@@ -9,17 +9,20 @@ router.get("/contacts", async (req, res) => {
       include: [
         {
           model: Contact,
-          attributes: ["name"],
+          Message,
+          attributes: ["firstName", "lastName", "email"],
+          attributes: ["content"],
         },
       ],
     });
 
     const contacts = contactData.get({ plain: true });
+    console.log(contacts);
 
     // render the main page (after login) for all contacts
-    res.status(200).render("Contact", {
+    res.status(200).render("socketAllChats", {
       ...contacts,
-      logged_in: req.session.logged_in,
+      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -27,13 +30,15 @@ router.get("/contacts", async (req, res) => {
 });
 
 // the route for particular contact
-router.get("/contacts/:id", async (req, res) => {
+router.get("/user/:user_id/room/:room_id", async (req, res) => {
   try {
     const contactData = await Contact.findByPk(req.params.id, {
       include: [
         {
           model: Contact,
-          attributes: ["name"],
+          Message,
+          attributes: ["firstName", "lastName", "email"],
+          attributes: ["content"],
         },
       ],
     });
@@ -41,7 +46,7 @@ router.get("/contacts/:id", async (req, res) => {
     const contacts = contactData.get({ plain: true });
 
     //TODO(if we have time*) render the personal chat page
-    res.status(200).render("chatContact", {
+    res.status(200).render("socketOneChat", {
       ...contacts,
       logged_in: req.session.logged_in,
     });

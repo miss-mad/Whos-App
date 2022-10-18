@@ -5,6 +5,7 @@
 
 const formatMessage = require("./utils/socketHelpers");
 
+// this function handles the 3 main socket events
 const run_socket = (server) => {
   const socketio = require("socket.io");
   const io = socketio(server);
@@ -70,6 +71,7 @@ const emit_message = (io, socket) => {
   });
 };
 
+// exports this to the server.js (lines 20-21)
 module.exports = {
   run_socket: run_socket,
 };

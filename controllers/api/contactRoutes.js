@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Contact } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const newContact = await Contact.findOne({
       where: {
@@ -17,7 +17,7 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.post("/", withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newContact = await Contact.create({
       ...req.body,
@@ -30,7 +30,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const contactData = await Contact.destroy({
       where: {

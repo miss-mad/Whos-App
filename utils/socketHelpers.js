@@ -11,9 +11,10 @@ const formatMessage = (username, text) => {
 };
 
 // generating a random user id for every single person who joins the server - this is to test socket, will replace with user's username
-const generate_random_user_id = () => {
-  return Math.floor(Math.random() * 100);
-};
+// don't need this helper anymore because we want the user_id of the user entering the room instead of generating a new, random id for that user
+// const generate_random_user_id = () => {
+//   return Math.floor(Math.random() * 100);
+// };
 
 // the following functions are all for socketServer.js to help socket's events: user enters a room, user sends a message, and user leaves a room
 

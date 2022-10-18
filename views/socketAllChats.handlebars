@@ -1,12 +1,18 @@
-{{!-- need to put this button link somewhere in nav bar --}}
-{{!-- <a href="/allchats">All Chats</a> --}}
+{{! need to put this button link somewhere in nav bar }}
+{{! <a href="/allchats">All Chats</a> }}
+
+{{!
+make multiple rooms
+replace generate_random_user_id helper function with a function to find the user id to put into the path URL
+ }}
 
 <ul class="nav nav-pills">
   <li class="nav-item">
-    <a class="nav-link" href="/user/{{generate_random_user_id}}/room/room1">Room 1</a>
+    <a class="nav-link" href="/user/{{username}}/room/room1">Room 1</a>
   </li>
-  {{!-- use when ready for room 2 --}}
-  {{!-- <li class="nav-item">
-    <a class="nav-link" href="/user/:user_id/room/room2">Room 2</a>
-  </li> --}}
+  <li>
+    <a class="nav-link" href="/user/{{username}}/room/room2">Room 2</a>
+  </li>
+  <li><a class="nav-link" href="/user/{{username}}/room/room3">Room 3</a></li>
+  <li><a class="nav-link" href="/user/{{username}}/room/room4">Room 4</a></li>
 </ul>

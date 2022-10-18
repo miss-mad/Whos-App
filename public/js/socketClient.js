@@ -30,32 +30,41 @@ const handleSocket = () => {
 
 const handleMessageEvent = (event) => {
   event.preventDefault();
-  const message = event.target.elements.input.value.trim();
+  // const messageInput = event.target.elements.input.value.trim();
+  const messageInput = event.target.elements.input;
+  let messageValue = messageInput.value;
+  const messageTrim = messageValue.trim();
 
-  if (!message) {
+  if (!messageTrim) {
     return false;
   }
 
-  socket.emit("chatMessage", message);
+  socket.emit("chatMessage", messageTrim);
 
-  event.target.elements.input.value = "";
-  event.target.elements.input.focus();
+  messageValue = "";
+  messageInput.focus();
 };
 
 function outputMessage(message) {
-  const listItem = document.createElement("li");
-  const message = event.target.elements.input.value.trim();
+  console.log(message)
 
-  listItem.setAttribute("class", "chat");
-  listItem.textContent = "user: " + message;
-  messages.appendChild(listItem);
+  const div = document.createElement("div");
+  div.setAttribute("class", "message");
 
-  allMessages.push(message);
-  console.log(allMessages);
+  const p = document.createElement("p");
+  p.setAttribute("class", "messageInfo");
 
-  input.value = "";
-  s;
-  input.focus();
+  p.innerText = message.username;
+  p.innerHTML += `<span> ${message.time}</span>`;
+  div.appendChild(p);
+
+  const messagesListP = document.createElement("p");
+  messagesListP.setAttribute("class", "messagesList");
+
+  messagesListP.innerText = message.text;
+  div.appendChild(messagesListP);
+
+  document.getElementById("messages").appendChild(div);
 }
 
 const outputRoomName = (room) => {

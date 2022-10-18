@@ -23,7 +23,6 @@ const handleSocket = () => {
   });
 
   socket.on("message", (message) => {
-    console.log(message);
     outputMessage(message);
   });
 };
@@ -46,7 +45,6 @@ const handleMessageEvent = (event) => {
 };
 
 function outputMessage(message) {
-  console.log(message)
 
   const div = document.createElement("div");
   div.setAttribute("class", "message");
@@ -60,6 +58,7 @@ function outputMessage(message) {
 
   const messagesListP = document.createElement("p");
   messagesListP.setAttribute("class", "messagesList");
+  // perhaps add styling for the user's chat messages here
 
   messagesListP.innerText = message.text;
   div.appendChild(messagesListP);
@@ -68,6 +67,7 @@ function outputMessage(message) {
 }
 
 const outputRoomName = (room) => {
+  // perhaps add styling here for displaying the room name
   roomName.innerText = room;
 };
 

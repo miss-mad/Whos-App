@@ -1,16 +1,29 @@
 const router = require("express").Router();
+const faker = require("faker");
+
 const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.post("/logout", async (req, res) => {
+router.post("/", async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  const firstName = faker.name.firstName();
+  const lastName = faker.name.lastName();
+  const userName = faker.internet.userName();
+
   try {
     const newUser = await User.create({
-      ...req.body,
-      user_id: req.session.user_id,
+      email,
+      password,
+      firstName,
+      lastName,
+      userName,
     });
 
+    console.log("New User: ", newUser);
     res.status(200).json(newUser);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -26,19 +39,6 @@ router.get("/:id", async (req, res) => {
 
     res.status(200).json(getUser);
   } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post("/", async (req, res) => {
-  try {
-    const newUser = await User.create({
-      ...req.body,
-    });
-
-    res.status(200).json(newUser);
-  } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -66,15 +66,19 @@ router.delete("/:id", withAuth, async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
+
     if (!userData) {
       res.status(400).json({ message: "Whoooooo was that???" });
       return;
     }
+
     const validPassword = await userData.checkPassword(req.body.password);
+
     if (!validPassword) {
       res.status(400).json({ message: "Whoooooo was that???" });
       return;
     }
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -88,11 +92,13 @@ router.post("/login", async (req, res) => {
 
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
+    // .destroy is an express-session method that means the session will be destroyed when the response ends
     req.session.destroy(() => {
+      // .end is an express method that ends the response process
       res.status(204).end();
     });
   } else {
-    res.status(404).end("destroyed");
+    res.status(404).end();
   }
 });
 

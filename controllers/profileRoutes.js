@@ -1,19 +1,14 @@
 const router = require("express").Router();
 const { User, Contact, Message } = require("../models");
 
+// PROFILE ROUTES
+
 //contact
 // the route for all contacts
 router.get("/contacts", async (req, res) => {
   try {
     const contactData = await Contact.findAll({
-      include: [
-        {
-          model: Contact,
-          Message,
-          attributes: ["firstName", "lastName", "email"],
-          attributes: ["content"],
-        },
-      ],
+      include: [{ all: true, nested: true }],
     });
 
     const contacts = contactData.get({ plain: true });

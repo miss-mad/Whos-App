@@ -1,0 +1,22 @@
+<div class="container">
+  {{#each users as |user|}}
+    {{! 1 row = contact }}
+    <div class="row">
+      <div class="col">
+
+        {{!get the id and add it to the path}}
+        <button>
+          <a href="#">
+            Chat
+          </a>
+        </button>
+      </div>
+      <div class="col-6">
+        chat with
+        {{user.name}}
+        . . .
+      </div>
+
+    </div>
+  {{/each}}
+</div>

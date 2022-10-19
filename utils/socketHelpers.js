@@ -50,7 +50,6 @@ const getCurrentUser = (id) => {
 
 module.exports = {
   formatMessage,
-  generate_random_user_id,
   addUser,
   getRoomUsers,
   removeUser,

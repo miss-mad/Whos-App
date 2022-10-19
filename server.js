@@ -19,7 +19,6 @@ const hbs = exphbs.create({ helpers });
 const http = require("http");
 const server = http.createServer(app);
 const {run_socket} = require("./socketServer");
-run_socket(server);
 
 const sess = {
 
@@ -45,8 +44,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
+run_socket(server);
+
 sequelize.sync({ force: false }).then(() => {
 
-  app.listen(PORT, () => console.log(`Now listening http://localhost:${PORT}`));
+  server.listen(PORT, () => console.log(`Now listening http://localhost:${PORT}`));
 });
 

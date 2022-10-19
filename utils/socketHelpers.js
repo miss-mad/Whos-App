@@ -18,6 +18,7 @@ const formatMessage = (username, text) => {
 
 // the following functions are all for socketServer.js to help socket's events: user enters a room, user sends a message, and user leaves a room
 
+let users = [];
 // creates a users array that each new user gets added onto
 const addUser = (id, username, room) => {
   const user = { id, username, room };

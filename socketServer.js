@@ -3,7 +3,13 @@
 // user sends a message
 // user leaves a room
 
-const formatMessage = require("./utils/socketHelpers");
+const {
+  formatMessage,
+  addUser,
+  getRoomUsers,
+  removeUser,
+  getCurrentUser,
+} = require("./utils/socketHelpers");
 
 // this function handles the 3 main socket events
 const run_socket = (server) => {

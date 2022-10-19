@@ -1,13 +1,12 @@
-// don't need this anymore - can delete entire seeders folder
+// npm run seed runs this file to seed each table in the user_info database
 
-// Import seeds.js file
-const seedUsers = require("./faker-seed");
+// Import js file
+const seedUsers = require("./user_seeds");
 
 // Use the sequelize connection from the connection.js file
 const sequelize = require("../config/connection");
 
-// Function expression to seed all tables using async/await, then logging a message in the terminal once done
-// Must be in this order because otherwise will throw an error because certain foreign keys being referenced don't exist yet
+// Function expression to seed table using async/await, then logging a message in the terminal once done
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log("\n----- DATABASE SYNCED -----\n");

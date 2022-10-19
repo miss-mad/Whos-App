@@ -1,3 +1,5 @@
+// don't need this anymore - can delete entire seeders folder
+
 const faker = require("faker");
 const { User } = require("../models");
 const users = [...Array(100)].map((user) => ({
@@ -9,6 +11,7 @@ const users = [...Array(100)].map((user) => ({
   createdAt: new Date(),
   updatedAt: new Date(),
 }));
+console.log(users);
 
 const seedUsers = () => User.bulkCreate(users);
 

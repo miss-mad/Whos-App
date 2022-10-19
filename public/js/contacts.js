@@ -37,10 +37,10 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector(".new-contact")
-  .addEventListener("submit", newContactHandler);
+// document
+//   .querySelector(".new-contact")
+//   .addEventListener("submit", newContactHandler);
 
-document
-  .querySelector(".contact-list")
-  .addEventListener("click", delButtonHandler);
+// document
+//   .querySelector(".contact-list")
+//   .addEventListener("click", delButtonHandler);

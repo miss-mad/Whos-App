@@ -11,15 +11,15 @@ const userData = [...Array(10)].map(() => ({
 
 
 // NOTE: Comment this code below in if you want to save the output of userData to a local file AND overwrite existing json file with new seed information
-// const fs = require("fs");
-// fs.writeFileSync(
-//   "./seeds/data_from_faker.json",
-//   JSON.stringify({userData: userData}),
-//   function (err) {
-//     if (err) throw err;
-//     console.log("complete");
-//   }
-// );
+const fs = require("fs");
+fs.writeFileSync(
+  "./seeds/data_from_faker.json",
+  JSON.stringify({userData: userData}),
+  function (err) {
+    if (err) throw err;
+    console.log("complete");
+  }
+);
 
 const seedUsers = () =>
   User.bulkCreate(userData, {

@@ -3,15 +3,45 @@ const { Contact, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // ask for login
-// router.get("/", async (req, res) => {
-//   try {
-//     // force login
-//     res.redirect("/login");
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+// this should be the login route (in this case, homepage = login page = first page = /)
+router.get("/", withAuth, (req, res) => {
+  res.render("homepage", { logged_in: req.session.logged_in });
+});
 
+router.get("/dashboard", withAuth, async (req, res) => {
+  console.log("Req Session in /dashboard: ", req.session);
+
+  const userData = await User.findByPk(req.session.user_id, {
+    attributes: { include: ["user_name"] },
+  });
+
+  console.log("\nuserData", userData);
+
+  let tempUserData = userData.get({ plain: true });
+
+  console.log(tempUserData);
+
+  res.render("dashboard", {
+    logged_in: req.session.logged_in,
+    username: tempUserData.user_name,
+  });
+});
+
+// this route's contents are going to the ("/") above
+// do we need login route? what does login.handlebars do
+router.get("/login", (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  console.log("Session in /login: ", req.session);
+
+  if (req.session.logged_in) {
+    res.redirect("/dashboard");
+    return;
+  }
+
+  res.render("login");
+});
+
+// this is a duplicate so commenting it out
 // router.get("/login", (req, res) => {
 //   // If the user is already logged in, redirect the request to another route
 //   if (req.session.logged_in) {
@@ -38,18 +68,15 @@ router.get("/login", (req, res) => {
 // the route for all contacts
 router.get("/contacts", async (req, res) => {
   try {
-    const contactData = await Contact.findAll({
-      include: [{ all: true, nested: true }],
-    });
+    const contactData = await User.findAll();
 
-    const contacts = contactData.get({ plain: true });
-    console.log(contacts);
+    const contacts = contactData.map((user) => {
+      return user.dataValues;
+    });
+    // console.log(contacts);
 
     // render the main page (after login) for all contacts
-    res.status(200).render("socketAllChats", {
-      ...contacts,
-      // logged_in: req.session.logged_in,
-    });
+    res.render("contacts", { contacts: contacts });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -57,59 +84,8 @@ router.get("/contacts", async (req, res) => {
 
 // the route for particular contact
 router.get("/user/:user_id/room/:room_id", async (req, res) => {
-  try {
-    const contactData = await Contact.findByPk(req.params.id, {
-      include: [
-        {
-          model: Contact,
-          Message,
-          attributes: ["firstName", "lastName", "email"],
-          attributes: ["content"],
-        },
-      ],
-    });
-
-    const contacts = contactData.get({ plain: true });
-
-    //TODO(if we have time*) render the personal chat page
-    res.status(200).render("socketOneChat", {
-      ...contacts,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.post("/login", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  //TODO(if we have time*) render the personal chat page
+  res.status(200).render("socketOneChat");
 });
 
 router.post("/logout", (req, res) => {

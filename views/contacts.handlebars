@@ -1,22 +1,15 @@
 <div class="container">
-  {{#each users as |user|}}
-    {{! 1 row = contact }}
-    <div class="row">
-      <div class="col">
-
-        {{!get the id and add it to the path}}
-        <button>
-          <a href="#">
-            Chat
-          </a>
-        </button>
+  {{#if contacts.length}}
+    {{#each contacts as |contact|}}
+      <div class="row">
+        <div class="col">
+          {{contact.userName}} |
+          {{contact.firstName}} |
+          {{contact.lastName}}
+          . . .
+        </div>
       </div>
-      <div class="col-6">
-        chat with
-        {{user.name}}
-        . . .
-      </div>
-
-    </div>
-  {{/each}}
+    {{/each}}
+  {{/if}}
 </div>
+<script src="/js/contacts.js"></script>

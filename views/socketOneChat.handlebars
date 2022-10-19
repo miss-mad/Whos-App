@@ -1,3 +1,4 @@
+<br>
 <div class="container">
   <div class="row">
 
@@ -6,17 +7,24 @@
       <div class="row"><div class="col" id="users"></div></div>
     </div>
 
-    <div class="col-9">
+    <div class="col-6">
       <div class="row">
         <div class="col"></div>
         <form action="" id="messageForm">
           <input id="input" />
-          <button type="submit">Send Message</button>
+          <button type="submit" class="btn btn-success">Send Message</button>
         </form>
       </div>
+
       <div class="row">
         <div class="col" id="messages"></div>
       </div>
+    </div>
+
+    <div class="col-3"> 
+      <form>
+        <input type="button" value="Back to Dashboard" class="btn btn-danger" onclick="history.back()">
+      </form>
     </div>
   </div>
 </div>

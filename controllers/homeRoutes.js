@@ -3,7 +3,6 @@ const { Contact, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // ask for login
-// this should be the login route (in this case, homepage = login page = first page = /)
 router.get("/", async (req, res) => {
   try {
     // force login
@@ -13,7 +12,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// this route's contents are going to
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -24,16 +22,15 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// this is a duplicate so commenting it out
-// router.get("/login", (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
-//   if (req.session.logged_in) {
-//     res.redirect("/profile");
-//     return;
-//   }
+router.get("/login", (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect("/profile");
+    return;
+  }
 
-//   res.render("login");
-// });
+  res.render("login");
+});
 
 // PROFILE ROUTES
 
@@ -130,13 +127,13 @@ router.post("/logout", (req, res) => {
 // all chats page - route must match name of the page on main.handlebars
 // INSERT WITHAUTH later once we know this is working
 router.get("/allchats", async (req, res) => {
-  console.log("req.session", req.session)
+  console.log("req.session", req.session);
   // finds user by its primary key and gets only the user's username data
   const userData = await User.findByPk(req.session.user_id, {
     attributes: { include: ["username"] },
   });
 
-  console.log("\nuserData", userData)
+  console.log("\nuserData", userData);
 
   let tempUserData = userData.get({ plain: true });
 
@@ -149,19 +146,19 @@ router.get("/allchats", async (req, res) => {
   });
   // now the username is included in the URL when the user clicks a room to join
 });
-  
-  // single chat page - route must match name of the page on socketAllChats.handlebars
-  router.get("/user/:user_id/room/:room_id", async (req, res) => {
-    // name must match handlebars file
-    res.render("socketOneChat");
-  });
-  
-  // room 2 not used yet, can add later
-  // right now all users are in one room
-  // single chat page - route must match name of the page on socketAllChats.handlebars
-  router.get("/room2", async (req, res) => {
-    // name must match handlebars file
-    res.render("socketOneChat");
-  });
-  
+
+// single chat page - route must match name of the page on socketAllChats.handlebars
+router.get("/user/:user_id/room/:room_id", async (req, res) => {
+  // name must match handlebars file
+  res.render("socketOneChat");
+});
+
+// room 2 not used yet, can add later
+// right now all users are in one room
+// single chat page - route must match name of the page on socketAllChats.handlebars
+router.get("/room2", async (req, res) => {
+  // name must match handlebars file
+  res.render("socketOneChat");
+});
+
 module.exports = router;

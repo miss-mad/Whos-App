@@ -2,31 +2,26 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-3">
-      <div class="row"><div class="col" id="rooms"></div></div>
-      <div class="row"><div class="col" id="users"></div></div>
+    <div class="col-4">
+      <div class="row"><div class="col" style="color:rgb(241, 225, 80); background-color:sienna;" id="rooms"></div></div>
+      <div class="row"><div class="col" style="color: brown;" id="users"></div></div>
     </div>
 
-    <div class="col-6">
-      <div class="row">
-        <div class="col"></div>
+    <div class="col-8">
         <form action="" id="messageForm">
           <input id="input" />
           <button type="submit" class="btn btn-success">Send Message</button>
         </form>
-      </div>
-
-      <div class="row">
-        <div class="col" id="messages"></div>
-      </div>
+      <div id="messages"></div>
+      
     </div>
 
-    <div class="col-3"> 
-      <form>
-        <input type="button" value="Back to Dashboard" class="btn btn-danger" onclick="history.back()">
-      </form>
-    </div>
-  </div>
+    
+    <form>
+      <br>
+      <input type="button" value="Back to Dashboard" class="btn btn-danger" onclick="history.back()">
+    </form>
+  
 </div>
 
 {{!-- having set up socket.io set up on the server, we can access the front end library with the script tag below --}}

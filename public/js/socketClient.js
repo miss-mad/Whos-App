@@ -41,13 +41,14 @@ const handleMessageEvent = (event) => {
   socket.emit("chatMessage", messageTrim);
 
   messageValue = "";
-  messageInput.focus();
+  messageInput.clear();
 };
 
 function outputMessage(message) {
 
   const div = document.createElement("div");
   div.setAttribute("class", "message");
+  div.setAttribute("style", "background-color: lightgreen;")
 
   const p = document.createElement("p");
   p.setAttribute("class", "messageInfo");
@@ -68,7 +69,9 @@ function outputMessage(message) {
 
 const outputRoomName = (room) => {
   // perhaps add styling here for displaying the room name
+ 
   roomName.innerText = room;
+  
 };
 
 const outputUsers = (users) => {

@@ -68,18 +68,15 @@ router.get("/login", (req, res) => {
 // the route for all contacts
 router.get("/contacts", async (req, res) => {
   try {
-    const contactData = await Contact.findAll({
-      include: [{ all: true, nested: true }],
-    });
+    const contactData = await User.findAll();
 
-    const contacts = contactData.get({ plain: true });
-    console.log(contacts);
+    const contacts = contactData.map((user) => {
+      return user.dataValues;
+    });
+    // console.log(contacts);
 
     // render the main page (after login) for all contacts
-    res.status(200).render("socketAllChats", {
-      ...contacts,
-      // logged_in: req.session.logged_in,
-    });
+    res.render("contacts", { contacts: contacts });
   } catch (err) {
     res.status(500).json(err);
   }

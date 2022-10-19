@@ -4,20 +4,37 @@ const withAuth = require("../utils/auth");
 
 // ask for login
 // this should be the login route (in this case, homepage = login page = first page = /)
-router.get("/", async (req, res) => {
-  try {
-    // force login
-    res.redirect("/login");
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get("/", withAuth, (req, res) => {
+  res.render("homepage", { logged_in: req.session.logged_in });
 });
 
-// this route's contents are going to
+router.get("/dashboard", withAuth, async (req, res) => {
+  console.log("Req Session in /dashboard: ", req.session);
+
+  const userData = await User.findByPk(req.session.user_id, {
+    attributes: { include: ["user_name"] },
+  });
+
+  console.log("\nuserData", userData);
+
+  let tempUserData = userData.get({ plain: true });
+
+  console.log(tempUserData);
+
+  res.render("dashboard", {
+    logged_in: req.session.logged_in,
+    username: tempUserData.user_name,
+  });
+});
+
+// this route's contents are going to the ("/") above
+// do we need login route? what does login.handlebars do
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
+  console.log("Session in /login: ", req.session);
+
   if (req.session.logged_in) {
-    res.redirect("/profile");
+    res.redirect("/dashboard");
     return;
   }
 
@@ -60,59 +77,8 @@ router.get("/contacts", async (req, res) => {
 
 // the route for particular contact
 router.get("/user/:user_id/room/:room_id", async (req, res) => {
-  try {
-    const contactData = await Contact.findByPk(req.params.id, {
-      include: [
-        {
-          model: Contact,
-          Message,
-          attributes: ["firstName", "lastName", "email"],
-          attributes: ["content"],
-        },
-      ],
-    });
-
-    const contacts = contactData.get({ plain: true });
-
-    //TODO(if we have time*) render the personal chat page
-    res.status(200).render("socketOneChat", {
-      ...contacts,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.post("/login", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  //TODO(if we have time*) render the personal chat page
+  res.status(200).render("socketOneChat");
 });
 
 router.post("/logout", (req, res) => {
@@ -130,13 +96,13 @@ router.post("/logout", (req, res) => {
 // all chats page - route must match name of the page on main.handlebars
 // INSERT WITHAUTH later once we know this is working
 router.get("/allchats", async (req, res) => {
-  console.log("req.session", req.session)
+  console.log("req.session", req.session);
   // finds user by its primary key and gets only the user's username data
   const userData = await User.findByPk(req.session.user_id, {
     attributes: { include: ["username"] },
   });
 
-  console.log("\nuserData", userData)
+  console.log("\nuserData", userData);
 
   let tempUserData = userData.get({ plain: true });
 
@@ -149,19 +115,19 @@ router.get("/allchats", async (req, res) => {
   });
   // now the username is included in the URL when the user clicks a room to join
 });
-  
-  // single chat page - route must match name of the page on socketAllChats.handlebars
-  router.get("/user/:user_id/room/:room_id", async (req, res) => {
-    // name must match handlebars file
-    res.render("socketOneChat");
-  });
-  
-  // room 2 not used yet, can add later
-  // right now all users are in one room
-  // single chat page - route must match name of the page on socketAllChats.handlebars
-  router.get("/room2", async (req, res) => {
-    // name must match handlebars file
-    res.render("socketOneChat");
-  });
-  
+
+// single chat page - route must match name of the page on socketAllChats.handlebars
+router.get("/user/:user_id/room/:room_id", async (req, res) => {
+  // name must match handlebars file
+  res.render("socketOneChat");
+});
+
+// room 2 not used yet, can add later
+// right now all users are in one room
+// single chat page - route must match name of the page on socketAllChats.handlebars
+router.get("/room2", async (req, res) => {
+  // name must match handlebars file
+  res.render("socketOneChat");
+});
+
 module.exports = router;

@@ -33,7 +33,7 @@ const join_room = (io, socket) => {
 
     socket.join(user.room);
 
-    socket.emit("message", formatMessage("Hoo-dini Bot ", "Who's App!"));
+    socket.emit("message", formatMessage("Hoo-dini Bot ", "Welcome to Who's App!"));
 
     socket.emit("onJoinRoom", "user has joined the room");
 

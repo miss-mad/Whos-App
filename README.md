@@ -24,14 +24,12 @@ To provide a fun, fast, free, and secure way of chatting with people from around
 
 ## User Story
 
-Login User Story 
-
-As a user
-I want to chat with other people across the world
+As a user <br> 
+I want to chat with other people across the world<br> 
 So I can have fun conversations
 
 
-Acceptance Criteria 
+## Acceptance Criteria 
 
 GIVEN a user want to chat with someone else
 
@@ -54,14 +52,14 @@ THEN I am presented with the ability to chat and can also see the chat history
 
 ## Technologies
 
-Node.js for back-end development
-Express.js for the REST API and session
-MySQL to store date to
-Sequelize to send objects
-Faker.js data to seed the database
-Socket.io to communication between clients
-Handlebars.js to create the webpage
-Heroku to host the app
+- Node.js for back-end development<br>
+- Express.js for the REST API and session<br>
+- MySQL to store date to<br>
+- Sequelize to send objects<br>
+- Faker.js data to seed the database<br>
+- Socket.io to communication between clients<br>
+- Handlebars.js to create the webpage<br>
+- Heroku to host the app
 
 
 ## Deployed Application

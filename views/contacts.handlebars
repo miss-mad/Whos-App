@@ -1,14 +1,15 @@
-<div class="container">
+<div class="container-fluid">
   {{#if contacts.length}}
     {{#each contacts as |contact|}}
-      <div class="row">
-        <div class="col">
-          {{contact.userName}} |
-          {{contact.firstName}} |
-          {{contact.lastName}}
-          . . .
-        </div>
+      <div class="row justify-content-center">
+        <div class="card border-warning m-3 text-center" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{contact.userName}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{contact.firstName }} {{contact.lastName}}</h6>
+          </div>
+        </div>        
       </div>
+
     {{/each}}
   {{/if}}
 </div>

@@ -1,4 +1,10 @@
 <div class="container-fluid">
+
+  <form>
+      <br>
+      <input type="button" value="Back to Dashboard" class="btn btn-danger" onclick="history.back()">
+    </form>
+    
   {{#if contacts.length}}
     {{#each contacts as |contact|}}
       <div class="row justify-content-center">

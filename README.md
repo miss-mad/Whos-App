@@ -66,9 +66,9 @@ Heroku to host the app
 
 ## Deployed Application
 
-This challenge is deployed to Heroku: 
+This challenge is deployed to Heroku: [https://whooooos-app.herokuapp.com/dashboard]
 
-and housed on Github: 
+and housed on Github: [https://github.com/MatthewShahamad/Whos-App]
 
 ## Future Improvements
 
@@ -98,11 +98,11 @@ Below are screenshots of Who's App.
 
 Collaborators:
 
-Group 1
- [Madeleine Harris](https://github.com/miss-mad)
- [Hunter O'Neal](https://github.com/HellaHunter)
- [Matthew Shahamad](https://github.com/MatthewShahamad)
- [Emilio Acosta-Galicia](https://github.com/EmilioAcostaG)
+Group 1 <br>
+ [Madeleine Harris](https://github.com/miss-mad)<br>
+ [Hunter O'Neal](https://github.com/HellaHunter)<br>
+ [Matthew Shahamad](https://github.com/MatthewShahamad)<br>
+ [Emilio Acosta-Galicia](https://github.com/EmilioAcostaG)<br>
  [Horatious Harris](https://github.com/geekcoldhand)
 
 ## License

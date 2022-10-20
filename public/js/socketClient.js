@@ -41,7 +41,7 @@ const handleMessageEvent = (event) => {
   socket.emit("chatMessage", messageTrim);
 
   messageValue = "";
-  messageInput.clear();
+  messageInput.focus();
 };
 
 function outputMessage(message) {

@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = newUser.dataValues.id;
       req.session.logged_in = true;
-      res.json({ user: newUser.dataValues, message: "Look Whoooooo's here!" });
+      res.json({ user: newUser.dataValues, message: "Look whoooooo's here!" });
     });
 
     // console.log("New User: ", newUser);

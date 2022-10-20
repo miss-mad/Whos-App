@@ -20,8 +20,10 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the dashboard page
       console.log("response: ", response);
       window.location.replace("/login");
+      // alert("Look whoooooo's here!")
     } else {
-      alert(response.statusText);
+      // const statusText = "Whoooooo was that???"
+      alert("Whoooooo was that???");
     }
   }
 };

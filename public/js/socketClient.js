@@ -3,9 +3,10 @@ const socket = io();
 let allMessages = [];
 
 // attribute selectors from socketOneChat.handlebars
-const input = document.getElementById("input");
 const messages = document.getElementById("messages");
+const messagesDiv = document.getElementById("messagesDiv");
 const messageForm = document.getElementById("messageForm");
+const messageInput = document.querySelector("#messagesInput");
 const roomName = document.getElementById("rooms");
 const userList = document.getElementById("users");
 
@@ -29,16 +30,15 @@ const handleSocket = () => {
 
 const handleMessageEvent = (event) => {
   event.preventDefault();
-  const message = document.querySelector("#messagesInput");
 
-  if (!message) {
+  if (!messageInput) {
     return false;
   }
 
-  socket.emit("chatMessage", message.value);
+  socket.emit("chatMessage", messageInput.value);
 
-  message.value = "";
-  message.focus();
+  messageInput.value = "";
+  messageInput.focus();
 };
 
 function outputMessage(message) {
@@ -55,13 +55,23 @@ function outputMessage(message) {
 
   const messagesListP = document.createElement("p");
   messagesListP.setAttribute("class", "messagesList");
-  // perhaps add styling for the user's chat messages here
 
   messagesListP.innerText = message.text;
   div.appendChild(messagesListP);
 
   document.getElementById("messages").appendChild(div);
-  div.scrollTop = messages.scrollHeight;
+  // div.scrollTop = messages.scrollHeight;
+  messages.scrollTop = messages.scrollHeight;
+  // autoScrollMessages();
+  // function autoScrollMessages() {
+  //   let visibleHeight = messagesListP.offsetHeight;
+  //   let totalHeight = messagesListP.scrollHeight;
+  //   let scrollOffset = messagesListP.scrollTop + visibleHeight;
+  //   if (totalHeight <= scrollOffset + 100) {
+  //     messagesListP.scrollTop = messagesListP.scrollHeight;
+  //   }
+  // }
+  // autoScrollMessages();
 }
 
 const outputRoomName = (room) => {

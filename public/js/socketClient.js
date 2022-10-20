@@ -45,10 +45,9 @@ const handleMessageEvent = (event) => {
 };
 
 function outputMessage(message) {
-
   const div = document.createElement("div");
   div.setAttribute("class", "message");
-  div.setAttribute("style", "background-color: lightgreen;")
+  div.setAttribute("style", "background-color: lightgreen;");
 
   const p = document.createElement("p");
   p.setAttribute("class", "messageInfo");
@@ -65,13 +64,13 @@ function outputMessage(message) {
   div.appendChild(messagesListP);
 
   document.getElementById("messages").appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
 }
 
 const outputRoomName = (room) => {
   // perhaps add styling here for displaying the room name
- 
+
   roomName.innerText = room;
-  
 };
 
 const outputUsers = (users) => {

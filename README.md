@@ -16,7 +16,7 @@ The newest chat app in town!
 
 ## Description
 
-(elevator pitch here)
+Privacy is hard to come by these days, especially online. Your data is sold from company to company like a current down the river and we wanted to bring back some anonymity to our daily social life. Our Who’s App is just that: Who is it that you’ll be talking to? You’ll never know with individual chat rooms established to talk to anyone else in the room, and then upon exit the messages are obliterated.
 
 ## Motivation
 
@@ -87,10 +87,14 @@ OR follow the above heroku deployed application link
 
 ## Usage
 
-Below are screenshots of Who's App.
+Below are screenshots of Who's App.<br>
 
-![Who's App screenshot 1]()
-![Who's App screenshot 2]()
+- User log into the app here or can sign up <br> 
+![Screen Shot 2022-10-20 at 3 41 57 PM](https://user-images.githubusercontent.com/108310545/197043213-2c5ca6c9-018d-468a-a202-45140d7ebb3e.png)
+- Chat rooms that are available to the user <br>
+![Screen Shot 2022-10-20 at 3 36 38 PM](https://user-images.githubusercontent.com/108310545/197042247-e83ab4b9-220f-413e-9c47-f8997cdb3daa.png)
+- Chat with another user<br>
+![Screen Shot 2022-10-20 at 3 41 27 PM](https://user-images.githubusercontent.com/108310545/197043581-99d55ea2-6073-403b-a11e-33e3ea0514d9.png)
 
 ## Credits
 

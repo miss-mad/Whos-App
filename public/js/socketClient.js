@@ -25,7 +25,12 @@ const handleSocket = () => {
 
   socket.on("message", (message) => {
     outputMessage(message);
+    autoScroll();
   });
+};
+
+const autoScroll = () => {
+  window.scrollBy({ top: 100, behavior: "smooth" });
 };
 
 const handleMessageEvent = (event) => {

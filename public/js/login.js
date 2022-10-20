@@ -19,7 +19,7 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
       console.log("response: ", response);
-      window.location.replace("/login");
+      window.location.replace("/");
       // alert("Look whoooooo's here!")
     } else {
       // const statusText = "Whoooooo was that???"
@@ -43,7 +43,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/dashboard");
+      window.location.replace("/dashboard");
     } else {
       alert(response.statusText);
     }

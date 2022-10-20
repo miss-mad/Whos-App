@@ -33,7 +33,7 @@ const join_room = (io, socket) => {
 
     socket.join(user.room);
 
-    socket.emit("message", formatMessage("Good Bot ", "Who's App!"));
+    socket.emit("message", formatMessage("Hoo-dini Bot ", "Who's App!"));
 
     socket.emit("onJoinRoom", "user has joined the room");
 
@@ -41,7 +41,7 @@ const join_room = (io, socket) => {
       .to(user.room)
       .emit(
         "message",
-        formatMessage("Good Bot ", `${user.username} has joined the chat`)
+        formatMessage("Hoo-dini Bot ", `${user.username} has joined the chat`)
       );
 
     io.to(user.room).emit("roomUsers", {
@@ -58,7 +58,7 @@ const leave_room = (io, socket) => {
     if (user) {
       io.to(user.room).emit(
         "message",
-        formatMessage("Good Bot ", `${user.username} has left the chat`)
+        formatMessage("Hoo-dini Bot ", `${user.username} has left the chat`)
       );
 
       io.to(user.room).emit("roomUsers", {

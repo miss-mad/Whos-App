@@ -10,7 +10,7 @@ const userData = [...Array(10)].map(() => ({
 }));
 
 
-// NOTE: Comment this code below in if you want to save the output of userData to a local file AND overwrite existing json file with new seed information
+// Save the output of userData to a local file AND overwrite existing json file with new seed information
 const fs = require("fs");
 fs.writeFileSync(
   "./seeds/data_from_faker.json",

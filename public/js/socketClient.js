@@ -60,23 +60,9 @@ function outputMessage(message) {
   div.appendChild(messagesListP);
 
   document.getElementById("messages").appendChild(div);
-  // div.scrollTop = messages.scrollHeight;
-  messages.scrollTop = messages.scrollHeight;
-  // autoScrollMessages();
-  // function autoScrollMessages() {
-  //   let visibleHeight = messagesListP.offsetHeight;
-  //   let totalHeight = messagesListP.scrollHeight;
-  //   let scrollOffset = messagesListP.scrollTop + visibleHeight;
-  //   if (totalHeight <= scrollOffset + 100) {
-  //     messagesListP.scrollTop = messagesListP.scrollHeight;
-  //   }
-  // }
-  // autoScrollMessages();
 }
 
 const outputRoomName = (room) => {
-  // perhaps add styling here for displaying the room name
-
   roomName.innerText = room;
 };
 

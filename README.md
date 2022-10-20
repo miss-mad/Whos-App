@@ -32,6 +32,7 @@ The newest chat app in town!
 ## Deployed Application
 
 This challenge is deployed to Heroku: 
+
 and housed on Github: 
 
 ## Future Improvements
@@ -49,10 +50,9 @@ Go to http://localhost:3001
 ```
 OR follow the above heroku deployed application link
 
-
 ## Usage
 
-Below is a screenshot of Who's App.
+Below are screenshots of Who's App.
 
 ![Who's App screenshot 1]()
 ![Who's App screenshot 2]()

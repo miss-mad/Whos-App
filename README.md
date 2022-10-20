@@ -89,7 +89,7 @@ OR follow the above heroku deployed application link
 
 Below are screenshots of Who's App.<br>
 
-- User log into the app here or can sign up <br> 
+- User logs into the app here or can sign up <br> 
 ![Screen Shot 2022-10-20 at 3 41 57 PM](https://user-images.githubusercontent.com/108310545/197043213-2c5ca6c9-018d-468a-a202-45140d7ebb3e.png)
 - Chat rooms that are available to the user <br>
 ![Screen Shot 2022-10-20 at 3 36 38 PM](https://user-images.githubusercontent.com/108310545/197042247-e83ab4b9-220f-413e-9c47-f8997cdb3daa.png)

@@ -29,26 +29,22 @@ const handleSocket = () => {
 
 const handleMessageEvent = (event) => {
   event.preventDefault();
-  // const messageInput = event.target.elements.input.value.trim();
-  const messageInput = event.target.elements.input;
-  let messageValue = messageInput.value;
-  const messageTrim = messageValue.trim();
+  const message = document.querySelector("#messagesInput");
 
-  if (!messageTrim) {
+  if (!message) {
     return false;
   }
 
-  socket.emit("chatMessage", messageTrim);
+  socket.emit("chatMessage", message.value);
 
-  messageValue = "";
-  messageInput.focus();
+  message.value = "";
+  message.focus();
 };
 
 function outputMessage(message) {
-
   const div = document.createElement("div");
   div.setAttribute("class", "message");
-  div.setAttribute("style", "background-color: lightgreen;")
+  div.setAttribute("style", "background-color: lightgreen;");
 
   const p = document.createElement("p");
   p.setAttribute("class", "messageInfo");
@@ -65,13 +61,13 @@ function outputMessage(message) {
   div.appendChild(messagesListP);
 
   document.getElementById("messages").appendChild(div);
+  div.scrollTop = messages.scrollHeight;
 }
 
 const outputRoomName = (room) => {
   // perhaps add styling here for displaying the room name
- 
+
   roomName.innerText = room;
-  
 };
 
 const outputUsers = (users) => {

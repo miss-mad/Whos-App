@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Contact, User } = require("../models");
 const withAuth = require("../utils/auth");
 
+// ______________________ HOME ROUTES ______________________
 // ask for login
 // this should be the login route (in this case, homepage = login page = first page = /)
 router.get("/", withAuth, (req, res) => {
@@ -41,29 +42,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// this is a duplicate so commenting it out
-// router.get("/login", (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
-//   if (req.session.logged_in) {
-//     res.redirect("/profile");
-//     return;
-//   }
-
-//   res.render("login");
-// });
-
-router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  // if (req.session.logged_in) {
-  //   res.redirect("/profile");
-  //   return;
-  // }
-
-  res.render("socketAllChats");
-});
-
-// PROFILE ROUTES
-
+// ______________________ PROFILE ROUTES ______________________
 //contact
 // the route for all contacts
 router.get("/contacts", async (req, res) => {

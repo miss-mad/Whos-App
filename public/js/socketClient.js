@@ -29,19 +29,16 @@ const handleSocket = () => {
 
 const handleMessageEvent = (event) => {
   event.preventDefault();
-  // const messageInput = event.target.elements.input.value.trim();
-  const messageInput = event.target.elements.input;
-  let messageValue = messageInput.value;
-  const messageTrim = messageValue.trim();
+  const message = document.querySelector("#messagesInput");
 
-  if (!messageTrim) {
+  if (!message) {
     return false;
   }
 
-  socket.emit("chatMessage", messageTrim);
+  socket.emit("chatMessage", message.value);
 
-  messageValue = "";
-  messageInput.focus();
+  message.value = "";
+  message.focus();
 };
 
 function outputMessage(message) {
@@ -64,7 +61,7 @@ function outputMessage(message) {
   div.appendChild(messagesListP);
 
   document.getElementById("messages").appendChild(div);
-  messages.scrollTop = messages.scrollHeight;
+  div.scrollTop = messages.scrollHeight;
 }
 
 const outputRoomName = (room) => {

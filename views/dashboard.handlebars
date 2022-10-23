@@ -1,24 +1,45 @@
-<h4>Join a Chat Room</h4>
+<h4 class="m-2 text-center">Join a Chat Room</h4>
 
-<ul class="nav nav-pills flex-column">
-  <br>
-  <br>
+<ul class="nav nav-pills d-flex justify-content-center">
+  <br />
+  <br /
+  {{!-- room 1> --}}
   <li class="nav-item">
-    <a class="nav-link active" href="/user/{{username}}/room/room1">Room 1</a>
+
+    <div class="nest">
+      <a class="rooms" href="/user/{{username}}/room/room1">
+        <img src="images/Rooms/1Room.png" width="190px" alt="" />
+      </a>
+    </div>
   </li>
-  <br>
-  <br>
+  <br />
+  <br />
+  {{!-- room 2 --}}
   <li class="nav-item">
-    <a class="nav-link active" href="/user/{{username}}/room/room2">Room 2</a>
+    <div class="nest">
+      <a class="rooms" href="/user/{{username}}/room/room1">
+        <img src="images/Rooms/2Room.png" width="190px" alt="" />
+      </a>
+    </div>
   </li>
-  <br>
-  <br>
+  <br />
+  
+{{!-- room 3 --}}
   <li class="nav-item">
-    <a class="nav-link active" href="/user/{{username}}/room/room3">Room 3</a>
+    <div class="nest">
+      <a class="rooms" href="/user/{{username}}/room/room1">
+        <img src="images/Rooms/3Room.png" width="190px" alt="" />
+      </a>
+    </div>
   </li>
-  <br>
-  <br>
+  <br />
+  <br />
+  {{!-- room 4 --}}
   <li class="nav-item">
-    <a class="nav-link active" href="/user/{{username}}/room/room4">Room 4</a>
+    <div class="nest">
+      <a class="rooms justify-content-center" href="/user/{{username}}/room/room1">
+        <img src="images/Rooms/3Room.png" width="190px" alt="" />
+      </a>
+    </div>
   </li>
 </ul>

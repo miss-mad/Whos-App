@@ -1,28 +1,26 @@
 <div class="container-fluid">
 
-  <div>
-      <br>
-      <input type="button" value="Back to Dashboard" class="btn btn-danger m-3 shadow"  onclick="history.back()">
-  </div>
-    <div class="row">
-      
-  {{#if contacts.length}}
-    {{#each contacts as |contact|}}
-      
+  <div class="row py-4">
+
+    {{#if contacts.length}}
+      {{#each contacts as |contact|}}
+
         <div class="col">
-          <div class="card shadow border-warning m-3 text-center" style="width: 18rem;">
+          <div
+            class="card shadow border-warning m-3 text-center"
+            style="width: 18rem;"
+          >
             <div class="card-body">
               <h5 class="card-title">{{contact.userName}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{contact.firstName }} {{contact.lastName}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{contact.firstName}}
+                {{contact.lastName}}</h6>
             </div>
-          </div>  
+          </div>
         </div>
-              
-      
 
-    {{/each}}
-  {{/if}}
-  
+      {{/each}}
+    {{/if}}
+
   </div>
 </div>
 <script src="/js/contacts.js"></script>

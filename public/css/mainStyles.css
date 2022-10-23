@@ -30,8 +30,8 @@
 
 .room {
   justify-content: center;
-  background-color: #ffff56;
-  color: black;
+  color: #ffff56;
+
   padding-inline: 0.75rem;
   padding-block: 0.375rem;
   border-radius: 0.375rem;

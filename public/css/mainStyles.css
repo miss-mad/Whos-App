@@ -1,15 +1,19 @@
+:root {
+  --pri-color: #f3f38b;
+}
+
 .contacts {
-  background-color: #ffff56;
+  background-color: var(--pri-color);
   color: black;
 }
 
 .back {
-  background-color: #ffff56;
+  background-color: var(--pri-color);
   color: black;
 }
 
 .logout {
-  background-color: #ffff56;
+  background-color: var(--pri-color);
   color: black;
 }
 .owl {
@@ -30,7 +34,7 @@
 
 .room {
   justify-content: center;
-  color: #ffff56;
+  color: var(--pri-color);
 
   padding-inline: 0.75rem;
   padding-block: 0.375rem;

@@ -53,7 +53,7 @@ router.get("/contacts", async (req, res) => {
 });
 
 router.get("/user/:user_id/room/:room_id", async (req, res) => {
-  res.status(200).render("socketOneChat");
+  res.status(200).render("socketOneChat", { socketOneChat: true });
 });
 
 router.post("/logout", (req, res) => {
@@ -88,9 +88,9 @@ router.get("/allchats", withAuth, async (req, res) => {
 });
 
 // single chat page - route must match name of the page on socketAllChats.handlebars
-router.get("/user/:user_id/room/:room_id", async (req, res) => {
-  // name must match handlebars file
-  res.render("socketOneChat");
-});
+// router.get("/user/:user_id/room/:room_id", async (req, res) => {
+//   // name must match handlebars file
+//   res.render("socketOneChat");
+// });
 
 module.exports = router;

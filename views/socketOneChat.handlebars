@@ -1,44 +1,87 @@
 <br />
-<div class="container">
+<div class="m-3">
   <div class="row">
 
     <div class="col-md-4 col-sm-12">
-      <div class="row"><div
-          class="col"
-          style="color:rgb(241, 225, 80); background-color:sienna;"
-          id="rooms"
-        ></div></div>
-      <div class="row"><div
-          class="col"
-          style="color: brown;"
-          id="users"
-        ></div></div>
+      <header class="text-center"> Users </header>
+      <hr />
+
+      <div class="row align-items-center">
+        <img src="/images/egg.png" class="egg" alt="" />
+        <div class="col" style="color: rgb(146, 212, 105);" id="users">
+
+        </div>
+      </div>
       <br />
       <br />
     </div>
 
     <div class="col-md-8 col-sm-12" id="messagesDiv">
-      <div id="messages"></div>
-      <form action="" id="messageForm">
-        <input id="messagesInput" />
-        <button type="submit" class="btn btn-success">Send Message</button>
+      <div id="messages" class="p-2"></div>
+
+      <form
+        action=""
+        class="d-flex justify-content-center align-items-center"
+        id="messageForm"
+      >
+        <button class="btn" onClick="history.back()">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            width="20px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            ></path></svg>
+        </button>
+
+        <input id="messagesInput" class="m-1" />
+        <button type="submit" class="messageBtn btn btn-success p-1"><svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            width="30px"
+            xmlns="http://www.w3.org/2000/svg"
+          ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+            ></path></svg></button>
       </form>
       <br />
     </div>
 
     <form>
       <br />
-      <input
-        type="button"
-        value="Back to Dashboard"
-        class="btn btn-danger"
-        onclick="history.back()"
-      />
+
+      {{! <button class="back btn">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          width="30px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+          ></path></svg>
+      </button> }}
     </form>
   </div>
 
 </div>
 
+<link rel="stylesheet" href="/css/mainStyles.css" />
 {{! having set up socket.io set up on the server, we can access the front end library with the script tag below }}
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/socketClient.js"></script>

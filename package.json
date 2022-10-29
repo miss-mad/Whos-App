@@ -12,13 +12,13 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MatthewShahamad/Whos-App/issues"
+    "url": "https://github.com/miss-mad/Whos-App/issues"
   },
-  "homepage": "https://github.com/MatthewShahamad/Whos-App#readme",
+  "homepage": "https://github.com/miss-mad/Whos-App#readme",
    "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MatthewShahamad/Whos-App.git"
+    "url": "git+https://github.com/miss-mad/Whos-App.git"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

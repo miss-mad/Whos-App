@@ -24,10 +24,9 @@ To provide a fun, fast, free, and secure way of chatting with people from around
 
 ## User Story
 
-As a user <br> 
-I want to chat with other people across the world<br> 
-So I can have fun conversations
-
+As a user
+I want to chat with other people across the world
+So I can have secure and anonymous conversations
 
 ## Acceptance Criteria 
 
@@ -49,30 +48,27 @@ WHEN I open one chat message
 
 THEN I am presented with the ability to chat and can also see the chat history
 
-
 ## Technologies
 
-- Node.js for back-end development<br>
-- Express.js for the REST API and session<br>
-- MySQL to store date to<br>
-- Sequelize to send objects<br>
-- Faker.js data to seed the database<br>
-- Socket.io to communication between clients<br>
-- Handlebars.js to create the webpage<br>
+- Node.js for back-end development
+- Express.js for the REST API and session
+- MySQL to store date to
+- Sequelize to send objects
+- Faker.js data to seed the database
+- Socket.io to communication between clients
+- Handlebars.js to create the webpage
 - Heroku to host the app
-
 
 ## Deployed Application
 
 This challenge is deployed to Heroku: [https://whooooos-app.herokuapp.com/dashboard]
 
-and housed on Github: [https://github.com/MatthewShahamad/Whos-App]
+and housed on Github: [https://github.com/miss-mad/Whos-App]
 
 ## Future Improvements
 
-* Save messages
-* Voice chat
-* Video chat
+* Save messages to a database for message history - this changes the anonymous nature of the app, however
+* Allowing users to choose a contact and enter into a chat room with that single contact only
 
 ## Installation
 
@@ -87,24 +83,24 @@ OR follow the above heroku deployed application link
 
 ## Usage
 
-Below are screenshots of Who's App.<br>
+Below are screenshots of Who's App.
 
-- User logs into the app here or can sign up <br> 
-![Screen Shot 2022-10-20 at 3 41 57 PM](https://user-images.githubusercontent.com/108310545/197043213-2c5ca6c9-018d-468a-a202-45140d7ebb3e.png)
-- Chat rooms that are available to the user <br>
-![Screen Shot 2022-10-20 at 3 36 38 PM](https://user-images.githubusercontent.com/108310545/197042247-e83ab4b9-220f-413e-9c47-f8997cdb3daa.png)
-- Chat with another user<br>
-![Screen Shot 2022-10-20 at 3 41 27 PM](https://user-images.githubusercontent.com/108310545/197043581-99d55ea2-6073-403b-a11e-33e3ea0514d9.png)
+- User chooses to log in or sign up  
+![Who's App Screenshot 1](./public/images/screenshots/whos-app-screenshot-original-1.JPG)
+- Chat rooms that are available to the user 
+![Who's App Screenshot 2](./public/images/screenshots/whos-app-screenshot-original-2.png)
+- Chat with another user
+![Who's App Screenshot 3](./public/images/screenshots/whos-app-screenshot-original-3.png)
 
 ## Credits
 
 Collaborators:
 
-Group 1 <br>
- [Madeleine Harris](https://github.com/miss-mad)<br>
- [Hunter O'Neal](https://github.com/HellaHunter)<br>
- [Matthew Shahamad](https://github.com/MatthewShahamad)<br>
- [Emilio Acosta-Galicia](https://github.com/EmilioAcostaG)<br>
+Group 1 
+ [Madeleine Harris](https://github.com/miss-mad)
+ [Hunter O'Neal](https://github.com/HellaHunter)
+ [Matthew Shahamad](https://github.com/MatthewShahamad)
+ [Emilio Acosta-Galicia](https://github.com/EmilioAcostaG)
  [Horatious Harris](https://github.com/geekcoldhand)
 
 ## License

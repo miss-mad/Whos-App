@@ -1,5 +1,8 @@
 # Who's App
+
 The newest chat app in town!
+
+View a recorded app demo here: [Who's App Demo](https://drive.google.com/file/d/18u4rHra0qDXu9xuqlpxFfnfvz2ouoRNG/view)
 
 ## Table of Contents
 
@@ -28,7 +31,7 @@ As a user
 I want to chat with other people across the world
 So I can have secure and anonymous conversations
 
-## Acceptance Criteria 
+## Acceptance Criteria
 
 GIVEN a user want to chat with someone else
 
@@ -42,7 +45,7 @@ THEN my credentials are saved to my device
 
 WHEN I see the main chat page,
 
-THEN I see a list of all of my contacts 
+THEN I see a list of all of my contacts
 
 WHEN I open one chat message
 
@@ -61,14 +64,16 @@ THEN I am presented with the ability to chat and can also see the chat history
 
 ## Deployed Application
 
-This challenge is deployed to Heroku: [https://whooooos-app.herokuapp.com/dashboard]
+This challenge is deployed to Heroku: [Who's App on Heroku](https://whooooos-app.herokuapp.com/dashboard)
 
-and housed on Github: [https://github.com/miss-mad/Whos-App]
+and housed on Github: [Who's App on Github](https://github.com/miss-mad/Whos-App)
+
+Demo link: [Who's App Demo](https://drive.google.com/file/d/18u4rHra0qDXu9xuqlpxFfnfvz2ouoRNG/view)
 
 ## Future Improvements
 
-* Save messages to a database for message history - this changes the anonymous nature of the app, however
-* Allowing users to choose a contact and enter into a chat room with that single contact only
+- Save messages to a database for message history - this changes the anonymous nature of the app, however
+- Allowing users to choose a contact and enter into a chat room with that single contact only
 
 ## Installation
 
@@ -79,6 +84,7 @@ node server.js
 
 Go to http://localhost:3001
 ```
+
 OR follow the above heroku deployed application link
 
 ## Usage
@@ -86,22 +92,22 @@ OR follow the above heroku deployed application link
 Below are screenshots of Who's App.
 
 - User chooses to log in or sign up  
-![Who's App Screenshot 1](./public/images/screenshots/whos-app-screenshot-original-1.JPG)
-- Chat rooms that are available to the user 
-![Who's App Screenshot 2](./public/images/screenshots/whos-app-screenshot-original-2.png)
+  ![Who's App Screenshot 1](./public/images/screenshots/whos-app-screenshot-original-1.JPG)
+- Chat rooms that are available to the user
+  ![Who's App Screenshot 2](./public/images/screenshots/whos-app-screenshot-original-2.png)
 - Chat with another user
-![Who's App Screenshot 3](./public/images/screenshots/whos-app-screenshot-original-3.png)
+  ![Who's App Screenshot 3](./public/images/screenshots/whos-app-screenshot-original-3.png)
 
 ## Credits
 
 Collaborators:
 
-Group 1 
- [Madeleine Harris](https://github.com/miss-mad)
- [Hunter O'Neal](https://github.com/HellaHunter)
- [Matthew Shahamad](https://github.com/MatthewShahamad)
- [Emilio Acosta-Galicia](https://github.com/EmilioAcostaG)
- [Horatious Harris](https://github.com/geekcoldhand)
+Group 1
+[Madeleine Harris](https://github.com/miss-mad)
+[Hunter O'Neal](https://github.com/HellaHunter)
+[Matthew Shahamad](https://github.com/MatthewShahamad)
+[Emilio Acosta-Galicia](https://github.com/EmilioAcostaG)
+[Horatious Harris](https://github.com/geekcoldhand)
 
 ## License
 

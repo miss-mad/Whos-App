@@ -7,10 +7,10 @@ View a recorded app demo here: [Who's App Demo](https://drive.google.com/file/d/
 ## Table of Contents
 
 - [Description](#description)
+- [Deployed Application](#deployed-application)
 - [Motivation](#motivation)
 - [User Story](#user-story)
 - [Technologies](#Technologies)
-- [Deployed Application](#deployed-application)
 - [Future Improvements](#future-improvements)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -20,6 +20,14 @@ View a recorded app demo here: [Who's App Demo](https://drive.google.com/file/d/
 ## Description
 
 Privacy is hard to come by these days, especially online. Your data is sold from company to company like a current down the river and we wanted to bring back some anonymity to our daily social life. Our Who’s App is just that: Who is it that you’ll be talking to? You’ll never know with individual chat rooms established to talk to anyone else in the room, and then upon exit the messages are obliterated.
+
+## Deployed Application
+
+This challenge is deployed to Heroku: [Who's App on Heroku](https://whooos-app.herokuapp.com/)
+
+and housed on Github: [Who's App on Github](https://github.com/miss-mad/whos-app)
+
+Demo link: [Who's App Demo](https://drive.google.com/file/d/18u4rHra0qDXu9xuqlpxFfnfvz2ouoRNG/view)
 
 ## Motivation
 
@@ -61,14 +69,6 @@ THEN I am presented with the ability to chat and can also see the chat history
 - Socket.io to communication between clients
 - Handlebars.js to create the webpage
 - Heroku to host the app
-
-## Deployed Application
-
-This challenge is deployed to Heroku: [Who's App on Heroku](https://whooooos-app.herokuapp.com/dashboard)
-
-and housed on Github: [Who's App on Github](https://github.com/miss-mad/Whos-App)
-
-Demo link: [Who's App Demo](https://drive.google.com/file/d/18u4rHra0qDXu9xuqlpxFfnfvz2ouoRNG/view)
 
 ## Future Improvements
 
